@@ -2,8 +2,7 @@
 
 const poll = {
     question: "What is your favourite programming language?",
-    options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
-    // This generates [0, 0, 0, 0]. More in the next section!
+    options: ["1: JavaScript", "2: Python", "3: Rust", "4: C++"],
     answers: new Array(4).fill(0),
     
     displayResults: function(type = 'array'){
@@ -22,9 +21,10 @@ const registerNewAnswer = function() {
     )
     console.log(answer);
 
-    typeof answer === 'number' &&
-      answer < this.answers.length &&
-      this.answers[answer]++;
+    typeof answer === 'number' && 
+      answer > 0 &&
+      answer <= this.answers.length &&
+      this.answers[answer-1]++;
 
     this.displayResults();
     this.displayResults('string');
